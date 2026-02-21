@@ -8,7 +8,7 @@ import pandas as pd
 # ===============================
 st.set_page_config(page_title="中信兄弟 Arm Angle 預測系統", page_icon="⚾")
 
-st.title("⚾ Arm Angle 手臂放球角度預測")
+st.title("Arm Angle 手臂放球角度預測")
 st.markdown("""
 根據投球進階數據預測投手的 **Arm Angle**。
 請在左側輸入數據(需輸入英制單位)，點擊下方按鈕進行預測。
@@ -46,13 +46,13 @@ v6 = st.sidebar.number_input("InducedVertBreak (誘發垂直位移 in)", value=1
 # 主畫面預測邏輯
 # ===============================
 # 定義與訓練時完全一致的欄位順序
-predictors = ['SpinAxis', 'RelSide', 'RelHeight', 'HorzBreak', 'VertBreak', 'InducedVertBreak']
+predictors = ['spin_axis', 'RelSide', 'RelHeight', 'HorzBreak', 'VertBreak', 'InducedVertBreak']
 
 if st.button("🚀 開始預測", use_container_width=True):
     try:
         # 修正：將輸入封裝成 DataFrame 並指定欄位名稱
         input_df = pd.DataFrame(
-            [[spin_axis, rel_side, rel_height, horz_break, vert_break, induced_vert_break]], 
+            [[v1, v2, v3, v4, v5, v6]], 
             columns=predictors
         ).astype(float)
         
@@ -60,7 +60,7 @@ if st.button("🚀 開始預測", use_container_width=True):
         prediction = model.predict(input_df)[0]
         
         # 顯示結果
-        st.balloons()
+        #st.balloons()
         st.success(f"### 預測 Arm Angle: `{prediction:.2f}°`")
         
     except Exception as e:

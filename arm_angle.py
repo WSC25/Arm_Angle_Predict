@@ -45,35 +45,32 @@ v6 = st.sidebar.number_input("InducedVertBreak (誘發垂直位移 in)", value=1
 # ===============================
 # 主畫面預測邏輯
 # ===============================
-# 定義正確的欄位名稱與順序
+# 定義與訓練時完全一致的欄位順序
 predictors = ['spin_axis', 'RelSide', 'RelHeight', 'HorzBreak', 'VertBreak', 'InducedVertBreak']
 
 if st.button("🚀 開始預測", use_container_width=True):
     try:
-        # 核心修正：將資料封裝進 DataFrame，並指定 columns 名稱
-        # 這能避免 Pipeline 模型在執行 transform 時找不到 _fill_dtype 的錯誤
-        input_data = pd.DataFrame(
-            [[v1, v2, v3, v4, v5, v6]], 
+        # 修正：將輸入封裝成 DataFrame 並指定欄位名稱
+        input_df = pd.DataFrame(
+            [[spin_axis, rel_side, rel_height, horz_break, vert_break, induced_vert_break]], 
             columns=predictors
         ).astype(float)
         
         # 進行預測
-        prediction = model.predict(input_data)[0]
+        prediction = model.predict(input_df)[0]
         
         # 顯示結果
         st.balloons()
-        st.divider()
-        st.subheader("📊 預測結果")
-        st.metric(label="預估手臂放球角度 (Arm Angle)", value=f"{prediction:.2f}°")
+        st.success(f"### 預測 Arm Angle: `{prediction:.2f}°`")
         
-
     except Exception as e:
-        st.error(f"預測過程中發生錯誤: {e}")
-        st.warning("這通常是因為本機與雲端的 scikit-learn 版本不一致。請檢查 requirements.txt 中的版本設定。")
+        st.error(f"預測執行失敗：{e}")
+        st.info("建議：請確認 requirements.txt 中的 scikit-learn 版本是否與本地端一致。")
 
 # ===============================
 # 底部說明
 # ===============================
 st.divider()
 st.caption("註：本系統僅供內部訓練與研發使用。數據準確度取決於輸入品質與模型訓練樣本。")
+
 

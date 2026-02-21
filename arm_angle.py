@@ -6,11 +6,11 @@ import pandas as pd
 # ===============================
 # 頁面配置
 # ===============================
-st.set_page_config(page_title="中信兄弟 Arm Angle 預測系統", page_icon="⚾")
+st.set_page_config(page_title="Arm Angle 預測", page_icon="⚾")
 
 st.title("Arm Angle 手臂放球角度預測")
 st.markdown("""
-根據投球進階數據預測投手的 **Arm Angle**。
+根據Trackman數據預測投手的 **Arm Angle**。
 請在左側輸入數據(需輸入英制單位)，點擊下方按鈕進行預測。
 """)
 
@@ -72,6 +72,7 @@ if st.button("🚀 開始預測", use_container_width=True):
 # ===============================
 st.divider()
 st.caption("註：本系統僅供內部訓練與研發使用。數據準確度取決於輸入品質與模型訓練樣本。")
+
 
 
 

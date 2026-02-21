@@ -1,1 +1,1 @@
-網誌:https://armanglepredict.streamlit.app
+網址:https://armanglepredict.streamlit.app

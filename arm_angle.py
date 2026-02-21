@@ -46,7 +46,7 @@ v6 = st.sidebar.number_input("InducedVertBreak (誘發垂直位移 in)", value=1
 # 主畫面預測邏輯
 # ===============================
 # 定義與訓練時完全一致的欄位順序
-predictors = ['spin_axis', 'RelSide', 'RelHeight', 'HorzBreak', 'VertBreak', 'InducedVertBreak']
+predictors = ['SpinAxis', 'RelSide', 'RelHeight', 'HorzBreak', 'VertBreak', 'InducedVertBreak']
 
 if st.button("🚀 開始預測", use_container_width=True):
     try:
@@ -72,5 +72,6 @@ if st.button("🚀 開始預測", use_container_width=True):
 # ===============================
 st.divider()
 st.caption("註：本系統僅供內部訓練與研發使用。數據準確度取決於輸入品質與模型訓練樣本。")
+
 
 

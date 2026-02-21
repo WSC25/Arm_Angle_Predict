@@ -69,17 +69,18 @@ with col1:
         #else:
          #   st.info("💡 投球姿勢分類預估：**下勾 (Submarine)**")
 
-with col2:
+#with col2:
     # 這裡可以放一張輔助圖示或說明
-    st.markdown("### 數據參考基準")
-    ref_data = {
-        "指標": ["RelHeight", "RelSide", "SpinAxis"],
-        "一般範圍": ["5.5 - 6.5 ft", "1.5 - 2.5 ft", "150° - 240°"]
-    }
-    st.table(pd.DataFrame(ref_data))
+ #   st.markdown("### 數據參考基準")
+  #  ref_data = {
+   #     "指標": ["RelHeight", "RelSide", "SpinAxis"],
+    #    "一般範圍": ["5.5 - 6.5 ft", "1.5 - 2.5 ft", "150° - 240°"]
+    #}
+    #st.table(pd.DataFrame(ref_data))
 
 # ===============================
 # 底部說明
 # ===============================
 st.divider()
+
 st.caption("註：本系統僅供內部訓練與研發使用。數據準確度取決於輸入品質與模型訓練樣本。")

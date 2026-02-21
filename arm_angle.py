@@ -8,10 +8,10 @@ import pandas as pd
 # ===============================
 st.set_page_config(page_title="Arm Angle 預測", page_icon="⚾")
 
-st.title("⚾ Arm Angle 手臂放球角度預測")
+st.title("Arm Angle 預測")
 st.markdown("""
 根據 Trackman 數據預測投手的 **Arm Angle**。
-您可以自由切換 **英制** 或 **公制** 輸入，系統會自動處理轉換。
+可自由切換 **英制** 或 **公制** 輸入，系統會自動處理轉換。
 """)
 
 # ===============================
@@ -91,6 +91,7 @@ if st.button("🚀 開始預測", use_container_width=True):
 # ===============================
 st.divider()
 st.caption("本模型輸出之 Arm Angle 為基於大聯盟數據之預測值。由於預測模型本質上存在統計誤差，加上現有技術難以對中職所有投球瞬間進行精確物理驗證，結果僅供內部輔助分析參考。")
+
 
 
 
